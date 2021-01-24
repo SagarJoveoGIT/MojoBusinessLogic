@@ -1,0 +1,46 @@
+{
+  "id": "Client_1",
+  "name": "BLI1",
+  "inboundFeedUrl": "/Users/sagardevanna/IdeaProjects/MojoBusinessLogic/src/main/scala/Main/jsonExample.json",
+  "rulePubAssociates": [
+    {
+      "operators":[
+        {
+          "attribute": "country",
+          "operator": "Equals",
+          "value": ["India"]
+        },
+        {
+          "attribute": "category",
+          "operator": "Equals",
+          "value": ["Recruitment"]
+        }
+      ],
+      "publishers":[
+        {
+          "id": "Stack-OverFlow",
+          "isActive": true
+        }
+      ],
+      "priority":2,
+      "ruleType": "All"
+    },
+    {
+      "operators":[
+        {
+          "attribute": "country",
+          "operator": "NotEquals",
+          "value": ["India"]
+        }
+      ],
+      "publishers":[
+        {
+          "id": "Linked-In",
+          "isActive": true
+        }
+      ],
+      "priority":1,
+      "ruleType":"Some"
+    }
+  ]
+}
