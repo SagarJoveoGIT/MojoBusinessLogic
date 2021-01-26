@@ -5,6 +5,10 @@ import akka.http.scaladsl.testkit.ScalatestRouteTest
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
 
+/*
+Class to test Routes.
+*/
+
 class RoutesTest extends AnyWordSpec with Matchers with ScalatestRouteTest{
 
   val clientOnboardRoute=BusinessAPI.inboundFeedRoute()
