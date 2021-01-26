@@ -3,6 +3,10 @@ package ClientService
 import Main.DataUtility
 import org.scalatest.funsuite.AnyFunSuite
 
+/*
+Class to test Utility functions.
+*/
+
 class UtilityTest extends AnyFunSuite{
 
   test("GetJobEntity"){
