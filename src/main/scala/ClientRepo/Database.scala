@@ -6,6 +6,12 @@ import org.bson.codecs.configuration.CodecRegistries.{fromProviders, fromRegistr
 import org.mongodb.scala.bson.codecs.{DEFAULT_CODEC_REGISTRY, Macros}
 import org.mongodb.scala.{MongoClient, MongoCollection, MongoDatabase}
 
+/*
+Database for client management.
+1. Client details: Storing client details.
+2. Job details: Storing job details.
+*/
+
 object Database {
 
   private val clientCodecProvider: CodecProvider = Macros.createCodecProvider(classOf[Client])
