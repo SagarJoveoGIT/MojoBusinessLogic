@@ -7,6 +7,10 @@ import org.mongodb.scala.model.Filters
 import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
 
+/*
+Data used to test the functionalities.
+*/
+
 object DataUtility {
 
   val jobs = Seq(
