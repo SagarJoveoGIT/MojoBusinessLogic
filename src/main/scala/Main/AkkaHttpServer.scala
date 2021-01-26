@@ -11,6 +11,9 @@ import com.typesafe.scalalogging.LazyLogging
 import scala.io.StdIn
 import scala.util.{Failure, Success}
 
+/*
+Akka Http server.
+*/
 
 object AkkaHttpServer extends LazyLogging with App {
 
