@@ -9,6 +9,10 @@ import scala.util.{Failure, Success}
 import ClientService._
 import Main.DataUtility
 
+/*
+Class to test database operations.
+*/
+
 class DatabaseOpsTest extends AnyFunSuite{
 
   test("Inserting Client"){
