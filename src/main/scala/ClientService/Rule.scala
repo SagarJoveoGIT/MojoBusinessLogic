@@ -5,7 +5,6 @@ import org.mongodb.scala.model.Filters
 
 import java.util
 
-
 sealed trait Rule{
   def appendRule(dbList: BasicDBList): Unit
 }
