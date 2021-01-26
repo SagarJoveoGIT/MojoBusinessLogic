@@ -5,6 +5,7 @@ case class Job(referencenumber: Int, company: Option[String] = None, category: O
                title: Option[String] = None, description: Option[String] = None, city: Option[String] = None, state: Option[String] = None, country: Option[String] = None,
                url: Option[String] = None, date:Option[String] =None,text: Option[String] = None, valid: Option[Boolean] = Some(true))
 {
+
   def printJobDetails(): String = {
     return "Reference number: " + referencenumber + "\n" +
       "Company: " + company + "\n" +
@@ -20,6 +21,7 @@ case class Job(referencenumber: Int, company: Option[String] = None, category: O
       "Text: " + text + "\n" +
       "Valid: " + valid + "\n"
   }
+
 }
 
 
