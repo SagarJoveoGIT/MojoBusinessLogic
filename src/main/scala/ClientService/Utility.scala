@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat
 import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
 
+
 object Utility extends App with JsonSupport {
 
   //Extracting the jobs from given json file path.
