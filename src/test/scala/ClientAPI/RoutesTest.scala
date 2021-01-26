@@ -1,10 +1,11 @@
-import ClientAPI.BusinessAPI
+package ClientAPI
+
 import akka.http.scaladsl.model.{HttpEntity, HttpMethods, HttpRequest, MediaTypes}
 import akka.http.scaladsl.testkit.ScalatestRouteTest
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
 
-class TestingRoutes extends AnyWordSpec with Matchers with ScalatestRouteTest{
+class RoutesTest extends AnyWordSpec with Matchers with ScalatestRouteTest{
 
   val clientOnboardRoute=BusinessAPI.inboundFeedRoute()
 

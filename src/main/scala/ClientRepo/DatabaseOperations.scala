@@ -24,13 +24,6 @@ object DatabaseOperations {
     data
   }
 
-  //Fetching all jobs.
-  def fetchAllJobs():Future[Seq[Job]]={
-    val data=Database.jobDetails.find().toFuture()
-    Await.result(data,Duration.Inf)
-    data
-  }
-
   //Fetch client by client id.
   def fetchClient(id:String):Future[Seq[Client]]={
     val client=Database.clientDetails.find(Filters.eq("id",s"$id")).toFuture()

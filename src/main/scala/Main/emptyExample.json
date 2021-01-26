@@ -1,3 +1,91 @@
-[
+1 ->Some(ListBuffer((ListBuffer(Publisher(GlassDoor,true,Some(/Users/sagardevanna/IdeaProjects/MojoBusinessLogic/Linked-In.json)), Publisher(Monster,true,Some(/Users/sagardevanna/IdeaProjects/MojoBusinessLogic/Monster.json))),ListBuffer(Job(3,Some(Joveo),Some(Engineering),None,Some(Senior Software Engineer),Some(Joveo is an exciting programmatic media start-up with grand ambitions; â€˜a job for everyoneâ€™. Harnessing machine learning and big data, our platform connects our clients with the right candidates for the right roles, faster and more efficiently than ever before. Through brilliant people and innovative technology, we are driving next generation recruitment technology solutions.
+We have a unique culture which embodies the core values of the company - transparency, teamwork, integrity and ownership.
+We believe in faster iterations, deploying code into production on a daily basis, heavy focus on customer delight, flat hierarchy, and fun environment.
+Responsibilities
+You will be part of a small team, with a large amount of ownership and responsibility for managing things directly.
+You will ship high quality solutions with a sense of urgency and speed.
+You will work closely with product managers, other teams, and both internal and external stakeholders, owning a large part of the process from problem understanding to shipping the solution.
+You will have the freedom to suggest and drive organization-wide initiatives.
+Requirements
+4+ Years of Experience as a Development Engineer with Bachelorâ€™s degree in Computer Science, computer engineering, electrical engineering or equivalent work experience
+Experience with at least one the following languages= Scala, Java, and/or any functional language. We code primarily in Scala, so youâ€™ll be excited to either ramp up on that or continue building awesome things with it.
+Experience with software engineering best practices (e.g. unit testing, code reviews, design documentation).
+A blend of product, system, and people knowledge that lets you jump into a fast paced environment and contribute from day one
+An ability to balance a sense of urgency with shipping high quality and pragmatic solutions
+Extensive experience working with a large codebase and cross functional team
+Self-motivation and an enjoyment for a startup environment
 
-]
+
+Benefits
+Talented and collaborative coworkers who will both push and support you
+Market competitive salary
+Stock options
+Flat Hirerachy
+26 weeks maternity leave so you can truly bond with your child
+Paid Leaves
+Work from home options
+Sick leaves are never counted at Joveo
+Every day lunch and snacks
+Team outings, parties and Unlimited fun),Some(Hyderabad),Some(Telangana),Some(India),Some(https=//www.joveo.com/careers),Some(2019-11-26),Some(s),Some(true)), Job(6,Some(Joveo),Some(Design),Some(Design),Some(UX DESIGNER),Some(Joveo delivers the most relevant hires in the shortest time to companies around the world. Providing real-time insights at every step of the job seeker journey from click to hire, our AI-powered job advertising platform dynamically manages and optimizes sourcing and applications across all online channels. Powering 20M+ job postings every day, our machine learning continuously identifies success, learns and improves to reach the talent you need, when you need it.),Some(Hyderabad),Some(Telangana),Some(India),Some(https=//www.joveo.com/careers),Some(2019-05-16),None,Some(true)), Job(7,Some(Joveo),Some(Support),Some(Support),Some(Solutions Engineer),Some(Built for ease of use, Joveo replaces the guesswork, complexity,
+and inefficiency of todayâ€™s recruiting with intelligence, transparency, and power, delivering more relevant candidates, more certainty, more success.),Some(Hyderabad),Some(Telangana),Some(India),Some(https=//www.joveo.com/careers),Some(2019-05-17),None,Some(true)), Job(8,Some(Joveo),Some(Support),None,Some(Senior Product Manager),Some(Manage end-to-end product design and development lifecycle= from research, concept formation, development, launch and validation.),Some(London),Some(London),Some(United Kingdom),Some(https=//www.joveo.com/careers),Some(2019-05-15),Some(s),Some(true)), Job(9,Some(Joveo),Some(Support),None,Some(DIGITAL MARKETING MANAGER),Some(Grow new leads and support their journey through all stages of the marketing and sales funnels),Some(Redwood City),Some(California),Some(United States),Some(https=//www.joveo.com/careers),Some(2019-05-15),Some(s),Some(true)), Job(10,Some(Joveo),Some(Support),None,Some(HR MANAGER),Some(Create a process and manage employee on-boarding, assimilation program for US employees),Some(Redwood City),Some(California),Some(United States),Some(https=//www.joveo.com/careers),Some(2019-05-20),None,Some(true))),2021-01-26T03:07:34.526461)))
+2 ->Some(ListBuffer((ListBuffer(Publisher(Linked-In,true,Some(/Users/sagardevanna/IdeaProjects/MojoBusinessLogic/Linked-In.json)), Publisher(StackOver-Flow,true,Some(/Users/sagardevanna/IdeaProjects/MojoBusinessLogic/StackOver-Flow.json))),ListBuffer(Job(1,Some(Joveo),Some(Recruitment),Some(Recruitment),Some(CLIENT SUCCESS MANAGER),Some(Joveo is driving the next-generation of recruitment tech solutions globally. As our Senior Client Success Manager, you'll be a vital member of the founding team for Joveo Europe, based in London. You'll be earning a competitive salary, and we encourage flexible and remote working.
+
+As our Senior Customer Success Manager, you'll be responsible for managing multiple customers and serve as their primary Joveo contact and advisor. You'll be empowered to succeed in your client focussed role while working collaboratively with the Global Head of CS and MD for Joveo UK on our regional Client Success strategy.
+
+With previous experience as a Client Success Manager you'll thrive in a fast-paced environment and be passionate about using creativity to collaboratively solve problems= helping our awesome customers win!),Some(London),Some(London),Some(United Kingdom),Some(https=//www.joveo.com/careers),Some(2019-11-24),None,Some(true)), Job(2,Some(Joveo),Some(Recruitment),Some(Recruitment),Some(CUSTOMER SUCCESS MANAGER),Some(With brilliant people and innovative AI/ML technologies, Joveo is driving the next-generation of recruitment tech solutions globally. As a Customer Success Manager, you will be a key member of our fast-growing Customer Success Team. You will be responsible for managing multiple customers and serve as their primary Joveo interface, advisor and advocate. The ideal candidate thrives in a fast-paced environment and is passionate about being a customer advocate and a trusted strategic advisor by constantly acquiring and upgrading the required skills and domain knowledge. You build strong and long-lasting relationships with your customers and your efforts will drive customer satisfaction and happiness.),Some(Redwood City),Some(California),Some(United States),Some(https=//www.joveo.com/careers),Some(2019-11-24),None,Some(true)), Job(4,Some(Joveo),Some(Recruitment),None,Some(Data Scientist),Some(Joveo is an exciting programmatic media start-up with grand ambitions; â€˜a job for everyoneâ€™. Harnessing machine learning and big data, our platform connects our clients with the right candidates for the right roles, faster and more efficiently than ever before. Through brilliant people and innovative technology, we are driving next generation recruitment technology solutions.
+We have a unique culture which embodies the core values of the company - transparency, teamwork, integrity and ownership.
+We believe in faster iterations, deploying code into production on a daily basis, heavy focus on customer delight, flat hierarchy, and fun environment.
+Responsibilities
+You will be part of a small team, with a large amount of ownership and responsibility for managing things directly.
+You will ship high quality solutions with a sense of urgency and speed.
+You will work closely with product managers, other teams, and both internal and external stakeholders, owning a large part of the process from problem understanding to shipping the solution.
+You will have the freedom to suggest and drive organization-wide initiatives.
+Requirements
+4+ Years of Experience as a Development Engineer with Bachelorâ€™s degree in Computer Science, computer engineering, electrical engineering or equivalent work experience
+Experience with at least one the following languages= Scala, Java, and/or any functional language. We code primarily in Scala, so youâ€™ll be excited to either ramp up on that or continue building awesome things with it.
+Experience with software engineering best practices (e.g. unit testing, code reviews, design documentation).
+A blend of product, system, and people knowledge that lets you jump into a fast paced environment and contribute from day one
+An ability to balance a sense of urgency with shipping high quality and pragmatic solutions
+Extensive experience working with a large codebase and cross functional team
+Self-motivation and an enjoyment for a startup environment
+
+
+Benefits
+Talented and collaborative coworkers who will both push and support you
+Market competitive salary
+Stock options
+Flat Hirerachy
+26 weeks maternity leave so you can truly bond with your child
+Paid Leaves
+Work from home options
+Sick leaves are never counted at Joveo
+Every day lunch and snacks
+Team outings, parties and Unlimited fun),Some(Hyderabad),Some(Telangana),Some(India),Some(https=//www.joveo.com/careers),Some(2019-11-27),Some(s),Some(true)), Job(5,Some(Joveo),Some(Recruitment),None,Some(Product Manager),Some(Joveo is an exciting programmatic media start-up with grand ambitions; â€˜a job for everyoneâ€™. Harnessing machine learning and big data, our platform connects our clients with the right candidates for the right roles, faster and more efficiently than ever before. Through brilliant people and innovative technology, we are driving next generation recruitment technology solutions.
+We have a unique culture which embodies the core values of the company - transparency, teamwork, integrity and ownership.
+We believe in faster iterations, deploying code into production on a daily basis, heavy focus on customer delight, flat hierarchy, and fun environment.
+Responsibilities
+You will be part of a small team, with a large amount of ownership and responsibility for managing things directly.
+You will ship high quality solutions with a sense of urgency and speed.
+You will work closely with product managers, other teams, and both internal and external stakeholders, owning a large part of the process from problem understanding to shipping the solution.
+You will have the freedom to suggest and drive organization-wide initiatives.
+Requirements
+4+ Years of Experience as a Development Engineer with Bachelorâ€™s degree in Computer Science, computer engineering, electrical engineering or equivalent work experience
+Experience with at least one the following languages= Scala, Java, and/or any functional language. We code primarily in Scala, so youâ€™ll be excited to either ramp up on that or continue building awesome things with it.
+Experience with software engineering best practices (e.g. unit testing, code reviews, design documentation).
+A blend of product, system, and people knowledge that lets you jump into a fast paced environment and contribute from day one
+An ability to balance a sense of urgency with shipping high quality and pragmatic solutions
+Extensive experience working with a large codebase and cross functional team
+Self-motivation and an enjoyment for a startup environment
+
+
+Benefits
+Talented and collaborative coworkers who will both push and support you
+Market competitive salary
+Stock options
+Flat Hirerachy
+26 weeks maternity leave so you can truly bond with your child
+Paid Leaves
+Work from home options
+Sick leaves are never counted at Joveo
+Every day lunch and snacks
+Team outings, parties and Unlimited fun),Some(Hyderabad),Some(Telangana),Some(India),Some(https=//www.joveo.com/careers),Some(2019-05-15),Some(s),Some(true))),2021-01-26T03:07:34.525458)))
