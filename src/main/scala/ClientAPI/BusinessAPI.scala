@@ -13,6 +13,12 @@ import scala.collection.mutable.ListBuffer
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 
+/*
+Routes for Http requests.
+1. inboundFeed Route: For client on-boarding.
+2. render jobGroups: Displaying job group of particular client.
+*/
+
 object BusinessAPI extends LazyLogging with JsonSupport with Directives {
 
   implicit val jsonStreamingSupport: JsonEntityStreamingSupport =
