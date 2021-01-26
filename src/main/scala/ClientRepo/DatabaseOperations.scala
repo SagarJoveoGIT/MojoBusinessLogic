@@ -8,6 +8,11 @@ import org.mongodb.scala.model.Filters
 import scala.concurrent.duration.Duration
 import scala.concurrent.{Await, Future}
 
+/*
+Database operations.
+1. Inserting and fetching clients.
+2. Inserting and fetching jobs.
+*/
 object DatabaseOperations {
 
   //Inserting client data.
