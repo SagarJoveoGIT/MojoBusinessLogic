@@ -3,7 +3,10 @@ package ClientService
 import com.fasterxml.jackson.databind.{DeserializationFeature, ObjectMapper}
 import com.fasterxml.jackson.module.scala.{DefaultScalaModule, ScalaObjectMapper}
 
-//Used to write Jobs to out bound feed file.
+/*
+Used to write Jobs to out bound feed file.
+*/
+
 object JsonUtil {
     val mapper = new ObjectMapper() with ScalaObjectMapper
     mapper.registerModule(DefaultScalaModule)
