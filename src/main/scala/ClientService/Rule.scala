@@ -1,6 +1,8 @@
 package ClientService
 
 import com.mongodb.BasicDBList
+import org.bson.codecs.configuration.CodecProvider
+import org.mongodb.scala.bson.codecs.Macros
 import org.mongodb.scala.model.Filters
 
 import java.util
@@ -84,6 +86,8 @@ final case class NotEndsWith(attribute:String, value:String) extends Rule{
 
 //Factory pattern for creating object of type rule base operator string.
 object Rule{
+
+  def codecProvider:CodecProvider = Macros.createCodecProvider(classOf[Rule])
 
   def apply(attribute:String,operator:String,value:List[String]):Rule= {
 

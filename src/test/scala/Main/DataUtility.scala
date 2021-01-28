@@ -4,8 +4,8 @@ import ClientService.{Job, JobGroup, Publisher, Rule}
 import com.mongodb.{BasicDBList, BasicDBObject}
 import org.mongodb.scala.model.Filters
 
-import scala.collection.mutable
-import scala.collection.mutable.ListBuffer
+import scala.collection.immutable.HashMap
+
 
 /*
 Data used to test the functionalities.
@@ -168,14 +168,13 @@ object DataUtility {
   val jobGroups = List(new JobGroup(rulesList1, pubsList1, 2, createdDateJobGroup1, "Some"),
     new JobGroup(ruleList2, pubsList2, 1, createdDateJobGroup2, "All"))
 
-  val priorityGroupedMap: mutable.HashMap[Int, ListBuffer[(ListBuffer[Publisher], ListBuffer[Job], String)]] =
-    scala.collection.mutable.HashMap[Int, ListBuffer[(ListBuffer[Publisher], ListBuffer[Job], String)]]()
+  val filtJobs1 = List(jobsSeq1).flatten
+  val filtJob2 = List(jobSeq2).flatten
 
-  val filtJobs1 = ListBuffer(jobsSeq1).flatten
-  val filtJob2 = ListBuffer(jobSeq2).flatten
+  val priorityGroupedMap: HashMap[Int, List[(List[Publisher], List[Job], String)]] =
+    HashMap[Int, List[(List[Publisher], List[Job], String)]]((2->List((List(pubsList1).flatten, List(filtJobs1).flatten, createdDateJobGroup1))),
+      (1->List((List(pubsList2).flatten, List(filtJob2).flatten, createdDateJobGroup2))))
 
-  priorityGroupedMap.put(2, ListBuffer((ListBuffer(pubsList1).flatten, ListBuffer(filtJobs1).flatten, createdDateJobGroup1)))
-  priorityGroupedMap.put(1, ListBuffer((ListBuffer(pubsList2).flatten, ListBuffer(filtJob2).flatten, createdDateJobGroup2)))
 
   //Data for testing "Duplicate jobs elimination using priorities and created date test".
   val jobsRefPriority1 = Set(3, 6, 7, 8, 9, 10)
@@ -185,11 +184,10 @@ object DataUtility {
   val uniqueFiltJob2 = jobs.filter(job => jobsRefPriority2.contains(job.referencenumber))
 
 
-  val priorityGroupedMapDuplicateEliminated: mutable.HashMap[Int, ListBuffer[(ListBuffer[Publisher], ListBuffer[Job], String)]] =
-    scala.collection.mutable.HashMap[Int, ListBuffer[(ListBuffer[Publisher], ListBuffer[Job], String)]]()
-
-  priorityGroupedMapDuplicateEliminated.put(2, ListBuffer((ListBuffer(pubsList1).flatten, ListBuffer(uniqueFiltJob2).flatten, createdDateJobGroup1)))
-  priorityGroupedMapDuplicateEliminated.put(1, ListBuffer((ListBuffer(pubsList2).flatten, ListBuffer(uniqueFiltJob1).flatten, createdDateJobGroup2)))
+  val priorityGroupedMapDuplicateEliminated: HashMap[Int, List[(List[Publisher], List[Job], String)]] =
+    HashMap[Int, List[(List[Publisher], List[Job], String)]](
+      (2->List((List(pubsList1).flatten, List(uniqueFiltJob2).flatten, createdDateJobGroup1))),
+      ( 1->List((List(pubsList2).flatten, List(uniqueFiltJob1).flatten, createdDateJobGroup2))))
 
   //Data for testing "sort by date".
   val Job1 = new Job(10, date = Some("2019-05-20"))

@@ -15,26 +15,26 @@ Class to test database operations.
 
 class DatabaseOpsTest extends AnyFunSuite{
 
-  test("Inserting Client"){
+  test("Inserting Client Details."){
     val data=DatabaseOperations.insertClientDetail(
       new Client("Client_1","BLI-1","/Users/sagardevanna/IdeaProjects/MojoBusinessLogic/src/main/scala/Main/jsonExample.json",Option(DataUtility.jobGroups)))
 
     data.onComplete{
-      case Success(value)=>(value===Completed)
-      case Failure(exception)=>assert(exception===Completed)
+      case Success(value)=>assert(true)
+      case Failure(exception)=>assert(false)
     }
   }
 
-  test("Inserting Jobs"){
+  test("Inserting Jobs Details."){
     val data=DatabaseOperations.insertJobDetails(DataUtility.jobs.toArray)
 
    data.onComplete{
-     case Success(value)=>(value===Completed)
-     case Failure(exception)=>assert(exception===Completed)
+     case Success(value)=>assert(true)
+     case Failure(exception)=>assert(false)
    }
   }
 
-  test("Fetch Client"){
+  test("Fetching Client details by client id."){
     val clients=DatabaseOperations.fetchClient("Client_1")
 
     clients.onComplete{
@@ -46,7 +46,7 @@ class DatabaseOpsTest extends AnyFunSuite{
     }
   }
 
-  test("Fetch Query"){
+  test("Fetching jobs by building query through rules."){
     val query=Utility.buildQuery(DataUtility.rulesList1,DataUtility.ruleType)
     val jobs=DatabaseOperations.fetchQuery(query)
 

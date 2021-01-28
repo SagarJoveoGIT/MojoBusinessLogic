@@ -21,10 +21,8 @@ object Database {
   private val clientDataCodecProvider:CodecProvider=Macros.createCodecProvider(classOf[ClientData])
   private val operationsCodecProvider:CodecProvider=Macros.createCodecProvider(classOf[Operator])
   private val rulePubAssociateCodecProvider:CodecProvider=Macros.createCodecProvider(classOf[RulePubAssociate])
-  private val codecProvider:CodecProvider = Macros.createCodecProvider(classOf[Rule])
 
-
-  private val customCodec = fromProviders(rulePubAssociateCodecProvider,operationsCodecProvider,clientDataCodecProvider,codecProvider,clientCodecProvider, jobGroupCodecProvider, jobCodecProvider, publisherCodecProvider)
+  private val customCodec = fromProviders(rulePubAssociateCodecProvider,operationsCodecProvider,clientDataCodecProvider,Rule.codecProvider,clientCodecProvider, jobGroupCodecProvider, jobCodecProvider, publisherCodecProvider)
 
   private val codecRegistries = fromRegistries(customCodec, DEFAULT_CODEC_REGISTRY)
 

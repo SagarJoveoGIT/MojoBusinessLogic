@@ -3,9 +3,10 @@ package ClientService
 import com.mongodb.{BasicDBList, BasicDBObject}
 import org.json4s.jackson.JsonMethods.parse
 
-import java.text.SimpleDateFormat
-import scala.collection.mutable
-import scala.collection.mutable.ListBuffer
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+
+
 
 
 object Utility extends App with JsonSupport {
@@ -40,109 +41,76 @@ object Utility extends App with JsonSupport {
 
   //Grouping job groups according to their priority.
   def getPriorityMap(publishers:List[List[Publisher]],jobs:List[Seq[Job]],jobGroups: List[JobGroup]):
-  mutable.HashMap[Int,ListBuffer[(ListBuffer[Publisher],ListBuffer[Job],String)]]={
+  Map[Int,List[(List[Publisher],List[Job],String)]]={
 
-    val pubToJobs:ListBuffer[(ListBuffer[Publisher], ListBuffer[Job],String)]=new ListBuffer[(ListBuffer[Publisher], ListBuffer[Job],String)]
     val createdDates=jobGroups.map(group=>group.createdDate)
+    val pubToJobs:List[(List[Publisher], List[Job],String)]=
+      (for{index<-0 until publishers.size} yield (publishers(index),List(jobs(index)).flatten,createdDates(index))).toList
 
-    for(index<-0 until publishers.size) {
-      val d1=ListBuffer(publishers(index)).flatten
-      val d2= ListBuffer(jobs(index)).flatten
-      val d3=createdDates(index)
-      pubToJobs.append((d1,d2,d3))
-    }
-
-    val map:mutable.HashMap[Int,ListBuffer[(ListBuffer[Publisher],ListBuffer[Job],String)]]=
-      scala.collection.mutable.HashMap[Int,ListBuffer[(ListBuffer[Publisher],ListBuffer[Job],String)]]()
-
-    for(index<-0 until jobGroups.size){
-      if(!map.contains(jobGroups(index).priority))
-        map.put(jobGroups(index).priority,new ListBuffer[(ListBuffer[Publisher],ListBuffer[Job],String)]())
-
-      val data=map.get(jobGroups(index).priority)
-      data.get+=pubToJobs(index)
-    }
-
+    val map=(for{index<-0 until jobGroups.size} yield (jobGroups(index).priority->pubToJobs(index))).toList.groupBy(_._1).
+            mapValues(value=>value.map(Val=>Val._2)).toMap
+    
     return map
   }
 
+  def sortByCreatedDate(jobGroup1:(List[Publisher],List[Job],String),jobGroup2:(List[Publisher],List[Job],String)):Boolean={
+
+    val format = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSSSS")
+
+    val jobGroup1Date=LocalDateTime.parse(jobGroup1._3,format)
+    val jobGroup2Date=LocalDateTime.parse(jobGroup2._3,format)
+
+    if(jobGroup1Date.isBefore(jobGroup2Date))
+      return true
+
+    return false
+  }
+
   //Eliminating duplicate jobs with respective to job group priority and created date.
-  def duplicateJobEliminationUsingPrioritiesAndCreatedDate(map:mutable.HashMap[Int,ListBuffer[(ListBuffer[Publisher],ListBuffer[Job],String)]]):Unit={
-    val priorities=map.keys.toList.sorted.reverse
-    val format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.S")
+  def duplicateJobEliminationUsingPrioritiesAndCreatedDate(groupedMap:Map[Int,List[(List[Publisher],List[Job],String)]]):
+  Map[Int,List[(List[Publisher],List[Job],String)]]={
 
+    val sortedMapByCreatedDate=groupedMap.map(data=>(data._1,data._2.sortWith((group1,group2)=>sortByCreatedDate(group1,group2))))
 
-    for(index<-0 until priorities.size){
-      val currentGroup=map.get(priorities(index))
+    val keys=sortedMapByCreatedDate.keys
 
-      currentGroup match {
-        case Some(value)=>{
-          for(i<-0 until value.size){
-            for(j<-i+1 until value.size){
-
-              val duplicateJobs1:ListBuffer[Job]=new ListBuffer[Job]()
-
-              for(job1<-value(i)._2){
-
-                val duplicateJobs2:ListBuffer[Job]=new ListBuffer[Job]()
-
-                for(job2<-value(j)._2){
-                  if(job1.referencenumber==job2.referencenumber) {
-                    val d1=format.parse(value(i)._3)
-                    val d2=format.parse(value(j)._3)
-
-                    if(d1.compareTo(d2)>=0)
-                      duplicateJobs1.append(job1)
-                    else
-                      duplicateJobs2.append(job2)
-                  }
-                }
-                value(j)._2--=duplicateJobs2
-              }
-              value(i)._2--=duplicateJobs1
-            }
-
-            for(nextIndex<-index+1 until priorities.size){
-              val nextGroup=map.get(priorities(nextIndex))
-
-              nextGroup match{
-                case Some(nextValue)=>{
-                  for(k<-0 until nextValue.size){
-
-                    val duplicateJobs:ListBuffer[Job]=new ListBuffer[Job]
-                    for(job1<-value(i)._2){
-                      for(job2<-nextValue(k)._2){
-                        if(job1.referencenumber==job2.referencenumber)
-                          duplicateJobs.append(job1)
-                      }
-                    }
-                    value(i)._2--=duplicateJobs
-                  }
-                }
-              }
-            }
-          }
+    val perPriorityDuplicateJobEliminatedMap=sortedMapByCreatedDate.map(data=>(data._1->data._2.map(values=>(values._1,values._2.filter(job=>{
+        !Set(sortedMapByCreatedDate.get(data._1) match {
+        case Some(groupList)=> {
+          groupList.filter(group =>(!(group.equals(values)))).map(group => group._2).flatten
         }
-      }
-    }
+      }).flatten.contains(job)
+    }),values._3))))
+
+    val duplicateJobEliminatedMap=perPriorityDuplicateJobEliminatedMap.map(data=>(data._1->data._2.map(values=>(values._1,values._2.filter(job=>{
+      !Set(for{key<-keys if(key<data._1)} yield perPriorityDuplicateJobEliminatedMap.get(key) match {
+        case Some(value)=>value.map(group=>group._2).flatten
+      }).flatten.flatten.contains(job)
+    }),values._3))))
+
+    return duplicateJobEliminatedMap
   }
 
   //Function to sort jobs by their date.
   def sortByDate(job1:Job,job2:Job):Boolean={
 
-    if(job1.date==None)
-      return false
-
-    if(job2.date==None)
-      return true
-
     val format = new java.text.SimpleDateFormat("yyyy-MM-dd")
 
-    val date1=format.parse(job1.date.get)
-    val date2=format.parse(job2.date.get)
+    job1.date match {
+      case Some(date1)=>{
+        job2.date match {
+          case Some(date2)=>{
+            val job1Date=format.parse(date1)
+            val job2Date=format.parse(date2)
 
-    if(date1.before(date2))
-      return true
+            if(job1Date.before(job2Date))
+              return true
+          }
+          case None=>return true
+        }
+      }
+      case None=> return false
+    }
 
     return false
   }

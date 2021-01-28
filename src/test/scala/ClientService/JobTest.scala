@@ -4,7 +4,7 @@ import org.scalatest.funsuite.AnyFunSuite
 
 class JobTest extends AnyFunSuite{
 
-  test("Job Details"){
+  test("Printing Job Details."){
 
     val job=new Job(title = Some("HR MANAGER"),
     company = Some("Joveo"),

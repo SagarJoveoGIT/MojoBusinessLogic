@@ -60,7 +60,7 @@ class RoutesTest extends AnyWordSpec with Matchers with ScalatestRouteTest{
       |  ]
       |}""".stripMargin
 
-  "inbound feed route" should {
+  "Inbound feed route for client on-boarding." should {
     "On-boarding client using the inbound feed route using /inbound-feed path." in {
 
       val postRequest = HttpRequest(
@@ -76,7 +76,7 @@ class RoutesTest extends AnyWordSpec with Matchers with ScalatestRouteTest{
 
   val renderJbGroupsRoute=BusinessAPI.renderJobGroups()
 
-  "Render Job Groups Route" should {
+  "Render Job Groups Route for specific client." should {
     "Client View using /Job-Groups?id=Client_1" in {
       Get("http://localhost:8080/Job-Groups?id=Client_1") ~> renderJbGroupsRoute ~> check {
         responseAs[String] shouldEqual "\"Client_1's Job Groups are rendered.\""
